@@ -4,6 +4,13 @@ $:.push arjdbc_lib unless $:.include?(arjdbc_lib)
 require 'arjdbc/version'
 
 Gem::Specification.new do |gem|
+  if gem.respond_to?(:metadata)
+    gem.metadata["allowed_push_host"] = "https://gems.internal.mx"
+  else
+    raise "RubyGems 2.0 or newer is required to protect against " \
+      "public gem pushes."
+  end
+
   gem.name        = "activerecord-jdbcpostgresql-adapter"
   gem.version     = version = ArJdbc::VERSION
   gem.platform    = 'java' # since base gem is tagged

@@ -1,6 +1,13 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |gem|
+  if gem.respond_to?(:metadata)
+    gem.metadata["allowed_push_host"] = "https://gems.internal.mx"
+  else
+    raise "RubyGems 2.0 or newer is required to protect against " \
+      "public gem pushes."
+  end
+
   gem.name = 'activerecord-jdbc-adapter'
   path = File.expand_path('lib/arjdbc/version.rb', File.dirname(__FILE__))
   gem.version = File.read(path).match( /.*VERSION\s*=\s*['"](.*)['"]/m )[1]
